@@ -14,7 +14,7 @@ public protocol YPImagePickerDelegate: AnyObject {
     func noPhotos()
 }
 
-public class YPImagePicker: UINavigationController {
+@objc public class YPImagePicker: UINavigationController {
     
     private var _didFinishPicking: (([YPMediaItem], Bool) -> Void)?
     public func didFinishPicking(completion: @escaping (_ items: [YPMediaItem], _ cancelled: Bool) -> Void) {

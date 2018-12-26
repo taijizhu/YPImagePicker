@@ -14,10 +14,10 @@ import Photos
 /// Typealias for code prettiness
 internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfiguration.shared }
 
-public struct YPImagePickerConfiguration {
+@objc public class YPImagePickerConfiguration : NSObject {
     public static var shared: YPImagePickerConfiguration = YPImagePickerConfiguration()
     
-    public init() {}
+    override public init() {}
     
     /// Scroll to change modes, defaults to true
     public var isScrollToChangeModesEnabled = true
