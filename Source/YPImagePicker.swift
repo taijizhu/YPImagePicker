@@ -10,17 +10,27 @@ import UIKit
 import AVFoundation
 import Photos
 
-public protocol YPImagePickerDelegate: AnyObject {
+@objc public protocol YPImagePickerDelegate: AnyObject {
     func noPhotos()
 }
 
 @objc public class YPImagePicker: UINavigationController {
     
     private var _didFinishPicking: (([YPMediaItem], Bool) -> Void)?
+    @objc private var _didFinishPicking_Photo: (([YPMediaPhoto], Bool) -> Void)?
+    @objc private var _didFinishPicking_Video: (([YPMediaVideo], Bool) -> Void)?
+    
+    public func didFinishPicking_Photo(completion: @escaping (_ items: [YPMediaPhoto], _ cancelled: Bool) -> Void) {
+        _didFinishPicking_Photo = completion
+    }
+    public func didFinishPicking_Video(completion: @escaping (_ items: [YPMediaVideo], _ cancelled: Bool) -> Void) {
+        _didFinishPicking_Video = completion
+    }
     public func didFinishPicking(completion: @escaping (_ items: [YPMediaItem], _ cancelled: Bool) -> Void) {
         _didFinishPicking = completion
     }
-    public weak var imagePickerDelegate: YPImagePickerDelegate?
+    
+    @objc public weak var imagePickerDelegate: YPImagePickerDelegate?
     
     public override var preferredStatusBarStyle: UIStatusBarStyle {
         return YPImagePickerConfiguration.shared.preferredStatusBarStyle
@@ -30,7 +40,13 @@ public protocol YPImagePickerDelegate: AnyObject {
     // This keeps the backwards compatibility keeps the api as simple as possible.
     // Multiple selection becomes available as an opt-in.
     private func didSelect(items: [YPMediaItem]) {
-        _didFinishPicking?(items, false)
+        if (items.singlePhoto != nil) {
+            _didFinishPicking_Photo?([items.singlePhoto!], false)
+        }
+        if (items.singleVideo != nil) {
+            _didFinishPicking_Video?([items.singleVideo!], false)
+        }
+        //_didFinishPicking?(items, false)
     }
     
     let loadingView = YPLoadingView()

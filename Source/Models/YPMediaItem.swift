@@ -12,7 +12,7 @@ import AVFoundation
 import Photos
 
 
-public class YPMediaPhoto {
+@objc public class YPMediaPhoto : NSObject {
     
     public var image: UIImage { return modifiedImage ?? originalImage }
     public let originalImage: UIImage
@@ -30,7 +30,7 @@ public class YPMediaPhoto {
     }
 }
 
-public class YPMediaVideo {
+@objc public class YPMediaVideo : NSObject {
     
     public var thumbnail: UIImage
     public var url: URL
@@ -45,7 +45,7 @@ public class YPMediaVideo {
     }
 }
 
-public enum YPMediaItem {
+public enum YPMediaItem  {
     case photo(p: YPMediaPhoto)
     case video(v: YPMediaVideo)
 }
