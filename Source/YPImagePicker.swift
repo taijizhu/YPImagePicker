@@ -37,12 +37,12 @@ public protocol YPImagePickerDelegate: AnyObject {
     private let picker: YPPickerVC!
     
     /// Get a YPImagePicker instance with the default configuration.
-    public convenience init() {
+    @objc public convenience init() {
         self.init(configuration: YPImagePickerConfiguration.shared)
     }
     
     /// Get a YPImagePicker with the specified configuration.
-    public required init(configuration: YPImagePickerConfiguration) {
+    @objc public required init(configuration: YPImagePickerConfiguration) {
         YPImagePickerConfiguration.shared = configuration
         picker = YPPickerVC()
         super.init(nibName: nil, bundle: nil)
