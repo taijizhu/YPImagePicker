@@ -20,10 +20,10 @@ import Photos
     @objc private var _didFinishPicking_Photo: (([YPMediaPhoto], Bool) -> Void)?
     @objc private var _didFinishPicking_Video: (([YPMediaVideo], Bool) -> Void)?
     
-    public func didFinishPicking_Photo(completion: @escaping (_ items: [YPMediaPhoto], _ cancelled: Bool) -> Void) {
+    @objc public func didFinishPicking_Photo(completion: @escaping (_ items: [YPMediaPhoto], _ cancelled: Bool) -> Void) {
         _didFinishPicking_Photo = completion
     }
-    public func didFinishPicking_Video(completion: @escaping (_ items: [YPMediaVideo], _ cancelled: Bool) -> Void) {
+    @objc public func didFinishPicking_Video(completion: @escaping (_ items: [YPMediaVideo], _ cancelled: Bool) -> Void) {
         _didFinishPicking_Video = completion
     }
     public func didFinishPicking(completion: @escaping (_ items: [YPMediaItem], _ cancelled: Bool) -> Void) {
