@@ -20,16 +20,16 @@ internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfigur
     override public init() {}
     
     /// Scroll to change modes, defaults to true
-    public var isScrollToChangeModesEnabled = true
+    @objc public var isScrollToChangeModesEnabled = true
     
     // Library configuration
-    public var library = YPConfigLibrary()
+    @objc public var library = YPConfigLibrary()
     
     // Video configuration
-    public var video = YPConfigVideo()
+    @objc public var video = YPConfigVideo()
     
     /// Use this property to modify the default wordings provided.
-    public var wordings = YPWordings()
+    @objc public var wordings = YPWordings()
     
     /// Use this property to modify the default icons provided.
     public var icons = YPIcons()
@@ -38,21 +38,21 @@ internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfigur
     public var colors = YPColors()
     
     /// Set this to true if you want to force the camera output to be a squared image. Defaults to true
-    public var onlySquareImagesFromCamera = true
+    @objc public var onlySquareImagesFromCamera = true
     
     /// Enables selecting the front camera by default, useful for avatars. Defaults to false
-    public var usesFrontCamera = false
+    @objc public var usesFrontCamera = false
     
     /// Adds a Filter step in the photo taking process.  Defaults to true
-    public var showsFilters = true
+    @objc public var showsFilters = true
     
     /// Enables you to opt out from saving new (or old but filtered) images to the
     /// user's photo library. Defaults to true.
-    public var shouldSaveNewPicturesToAlbum = true
+    @objc public var shouldSaveNewPicturesToAlbum = true
     
     /// Defines the name of the album when saving pictures in the user's photo library.
     /// In general that would be your App name. Defaults to "DefaultYPImagePickerAlbumName"
-    public var albumName = "DefaultYPImagePickerAlbumName"
+    @objc public var albumName = "DefaultYPImagePickerAlbumName"
     
     /// Defines which screen is shown at launch. Video mode will only work if `showsVideo = true`.
     /// Default value is `.photo`
@@ -70,22 +70,22 @@ internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfigur
     public var targetImageSize = YPImageSize.original
     
     /// Adds a Overlay View to the camera
-    public var overlayView = UIView()
+    @objc public var overlayView = UIView()
     
     /// Defines if the status bar should be hidden when showing the picker. Default is true
-    public var hidesStatusBar = true
+    @objc public var hidesStatusBar = true
     
     /// Defines if the bottom bar should be hidden when showing the picker. Default is false.
-    public var hidesBottomBar = false
+    @objc public var hidesBottomBar = false
 
     /// Defines the preferredStatusBarAppearance
-    public var preferredStatusBarStyle = UIStatusBarStyle.default
+    @objc public var preferredStatusBarStyle = UIStatusBarStyle.default
     
     /// Defines the text colour to be shown when a bottom option is selected
-    public var bottomMenuItemSelectedColour = UIColor(r: 38, g: 38, b: 38)
+    @objc public var bottomMenuItemSelectedColour = UIColor(r: 38, g: 38, b: 38)
     
     /// Defines the text colour to be shown when a bottom option is unselected
-    public var bottomMenuItemUnSelectedColour = UIColor(r: 153, g: 153, b: 153)
+    @objc public var bottomMenuItemUnSelectedColour = UIColor(r: 153, g: 153, b: 153)
     
     /// List of default filters which will be added on the filter screen
     public var filters: [YPFilter] = [
@@ -135,7 +135,7 @@ internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfigur
     public var onlySquareImagesFromLibrary = false
     
     @available(*, obsoleted: 3.0.0, renamed: "library.onlySquare")
-    public var onlySquareFromLibrary = false
+    @objc public var onlySquareFromLibrary = false
     
     @available(*, obsoleted: 3.0.0, renamed: "targetImageSize")
     public var libraryTargetImageSize = YPImageSize.original
@@ -147,17 +147,17 @@ internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfigur
     public var libraryMediaType = YPlibraryMediaType.photo
     
     @available(*, obsoleted: 3.0.0, renamed: "library.maxNumberOfItems")
-    public var maxNumberOfItems = 1
+    @objc public var maxNumberOfItems = 1
     
 }
 
 /// Encapsulates library specific settings.
-public struct YPConfigLibrary {
+@objc public class YPConfigLibrary : NSObject {
     
      public var options: PHFetchOptions? = nil
     
     /// Set this to true if you want to force the library output to be a squared image. Defaults to false
-    public var onlySquare = false
+    @objc public var onlySquare = false
     
     /// Minimum width, to prevent selectiong too high images. Have sense if onlySquare is true and the image is portrait.
     public var minWidthForItem: CGFloat?
@@ -166,49 +166,49 @@ public struct YPConfigLibrary {
     public var mediaType = YPlibraryMediaType.photo
     
     /// Anything superior than 1 will enable the multiple selection feature.
-    public var maxNumberOfItems = 1
+    @objc public var maxNumberOfItems = 1
     
     /// Anything greater than 1 will desactivate live photo and video modes (library only) and
     // force users to select at least the number of items defined.
-    public var minNumberOfItems = 1
+    @objc public var minNumberOfItems = 1
 
     /// Set the number of items per row in collection view. Defaults to 4.
-    public var numberOfItemsInRow: Int = 4
+    @objc public var numberOfItemsInRow: Int = 4
 
     /// Set the spacing between items in collection view. Defaults to 1.0.
-    public var spacingBetweenItems: CGFloat = 1.0
+    @objc public var spacingBetweenItems: CGFloat = 1.0
 
     /// Allow to skip the selections gallery when selecting the multiple media items. Defaults to false.
-    public var skipSelectionsGallery = false
+    @objc public var skipSelectionsGallery = false
 }
 
 /// Encapsulates video specific settings.
-public struct YPConfigVideo {
+@objc public class YPConfigVideo : NSObject {
     
     /// Choose the videoCompression.  Defaults to AVAssetExportPresetHighestQuality
-    public var compression: String = AVAssetExportPresetHighestQuality
+    @objc public var compression: String = AVAssetExportPresetHighestQuality
     
     /// Choose the result video extension if you trim or compress a video. Defaults to mov.
     public var fileType: AVFileType = .mov
     
     /// Defines the time limit for recording videos.
     /// Default is 60 seconds.
-    public var recordingTimeLimit: TimeInterval = 60.0
+    @objc public var recordingTimeLimit: TimeInterval = 60.0
     
     /// Defines the time limit for videos from the library.
     /// Defaults to 60 seconds.
-    public var libraryTimeLimit: TimeInterval = 60.0
+    @objc public var libraryTimeLimit: TimeInterval = 60.0
     
     /// Defines the minimum time for the video
     /// Defaults to 3 seconds.
-    public var minimumTimeLimit: TimeInterval = 3.0
+    @objc public var minimumTimeLimit: TimeInterval = 3.0
     
     /// The maximum duration allowed for the trimming. Change it before setting the asset, as the asset preview
-    public var trimmerMaxDuration: Double = 60.0
+    @objc public var trimmerMaxDuration: Double = 60.0
     
     /// The minimum duration allowed for the trimming.
     /// The handles won't pan further if the minimum duration is attained.
-    public var trimmerMinDuration: Double = 3.0
+    @objc public var trimmerMinDuration: Double = 3.0
 }
 
 public enum YPlibraryMediaType {

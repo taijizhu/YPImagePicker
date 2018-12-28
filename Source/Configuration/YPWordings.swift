@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct YPWordings {
+@objc public class YPWordings : NSObject {
     
     public var permissionPopup = PermissionPopup()
     public var videoDurationPopup = VideoDurationPopup()
@@ -26,19 +26,19 @@ public struct YPWordings {
         public var tooLongMessage = ypLocalized("YPImagePickerVideoTooLong")
     }
     
-    public var ok = ypLocalized("YPImagePickerOk")
-    public var done = ypLocalized("YPImagePickerDone")
-    public var cancel = ypLocalized("YPImagePickerCancel")
-    public var save = ypLocalized("YPImagePickerSave")
-    public var processing = ypLocalized("YPImagePickerProcessing")
-    public var trim = ypLocalized("YPImagePickerTrim")
-    public var cover = ypLocalized("YPImagePickerCover")
-    public var albumsTitle = ypLocalized("YPImagePickerAlbums")
-    public var libraryTitle = ypLocalized("YPImagePickerLibrary")
-    public var cameraTitle = ypLocalized("YPImagePickerPhoto")
-    public var videoTitle = ypLocalized("YPImagePickerVideo")
-    public var next = ypLocalized("YPImagePickerNext")
-    public var filter = ypLocalized("YPImagePickerFilter")
-    public var crop = ypLocalized("YPImagePickerCrop")
-    public var warningMaxItemsLimit = ypLocalized("YPImagePickerWarningItemsLimit")
+    @objc public var ok = ypLocalized("YPImagePickerOk")
+    @objc public var done = ypLocalized("YPImagePickerDone")
+    @objc public var cancel = ypLocalized("YPImagePickerCancel")
+    @objc public var save = ypLocalized("YPImagePickerSave")
+    @objc public var processing = ypLocalized("YPImagePickerProcessing")
+    @objc public var trim = ypLocalized("YPImagePickerTrim")
+    @objc public var cover = ypLocalized("YPImagePickerCover")
+    @objc public var albumsTitle = ypLocalized("YPImagePickerAlbums")
+    @objc public var libraryTitle = ypLocalized("YPImagePickerLibrary")
+    @objc public var cameraTitle = ypLocalized("YPImagePickerPhoto")
+    @objc public var videoTitle = ypLocalized("YPImagePickerVideo")
+    @objc public var next = ypLocalized("YPImagePickerNext")
+    @objc public var filter = ypLocalized("YPImagePickerFilter")
+    @objc public var crop = ypLocalized("YPImagePickerCrop")
+    @objc public var warningMaxItemsLimit = ypLocalized("YPImagePickerWarningItemsLimit")
 }

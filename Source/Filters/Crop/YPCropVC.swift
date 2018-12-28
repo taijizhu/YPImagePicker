@@ -13,7 +13,7 @@ public enum YPCropType {
     case rectangle(ratio: Double)
 }
 
-class YPCropVC: UIViewController {
+@objc class YPCropVC: UIViewController {
     
     public var didFinishCropping: ((UIImage) -> Void)?
     
