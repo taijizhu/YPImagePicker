@@ -73,6 +73,7 @@ import Photos
         super.viewDidLoad()
         picker.didClose = { [weak self] in
             self?._didFinishPicking?([], true)
+            self?._didFinishPicking_Photo?([], true)
         }
         viewControllers = [picker]
         setupLoadingView()
