@@ -15,7 +15,7 @@ import Photos
 internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfiguration.shared }
 
 @objc public class YPImagePickerConfiguration : NSObject {
-    public static var shared: YPImagePickerConfiguration = YPImagePickerConfiguration()
+    @objc public static var shared: YPImagePickerConfiguration = YPImagePickerConfiguration()
     
     override public init() {}
     
