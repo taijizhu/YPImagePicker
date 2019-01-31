@@ -58,6 +58,13 @@ internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfigur
     /// Default value is `.photo`
     public var startOnScreen: YPPickerScreen = .photo
     
+    @objc public func startupLibrary() -> () {
+        startOnScreen = .library
+    }
+    
+    @objc public func startupPhoto() -> () {
+        startOnScreen = .photo
+    }
     /// Defines which screens are shown at launch, and their order.
     /// Default value is `[.library, .photo]`
     public var screens: [YPPickerScreen] = [.library, .photo]
