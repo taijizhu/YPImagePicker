@@ -41,7 +41,7 @@ import Photos
     // Multiple selection becomes available as an opt-in.
     private func didSelect(items: [YPMediaItem]) {
         if (items.singlePhoto != nil) {
-            _didFinishPicking_Photo?([items.singlePhoto!], false)
+            _didFinishPicking_Photo?(items.multiplePhotos ?? [], false)
         }
         if (items.singleVideo != nil) {
             _didFinishPicking_Video?([items.singleVideo!], false)

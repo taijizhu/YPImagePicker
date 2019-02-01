@@ -71,6 +71,19 @@ public extension Array where Element == YPMediaItem {
         return nil
     }
     
+    public var multiplePhotos: [YPMediaPhoto]? {
+        var photos : [YPMediaPhoto] = []
+        for (_, item) in self.enumerated() {
+            switch (item) {
+            case .photo(let p):
+                photos.append(p)
+                break
+            case .video(let _):
+                break
+            }
+        }
+        return photos
+    }
     public var singleVideo: YPMediaVideo? {
         if let f = first, case let .video(v) = f {
             return v
