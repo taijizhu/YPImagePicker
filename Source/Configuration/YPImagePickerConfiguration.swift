@@ -47,14 +47,10 @@ internal var YPConfig: YPImagePickerConfiguration { return YPImagePickerConfigur
     @objc public var usesFrontCamera = false
     
     /// Adds a Filter step in the photo taking process.  Defaults to true
-<<<<<<< HEAD
-    @objc public var showsFilters = true
-=======
     public var showsPhotoFilters = true
     
     /// Adds a Video Trimmer step in the video taking process.  Defaults to true
     public var showsVideoTrimmer = true
->>>>>>> e25f5401a0bfe2b5bbb1b901f7536c36ba7093da
     
     /// Enables you to opt out from saving new (or old but filtered) images to the
     /// user's photo library. Defaults to true.

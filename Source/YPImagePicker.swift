@@ -14,15 +14,11 @@ import Photos
     func noPhotos()
 }
 
-<<<<<<< HEAD
-@objc public class YPImagePicker: UINavigationController {
-=======
 open class YPImagePicker: UINavigationController {
       
     open override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
->>>>>>> e25f5401a0bfe2b5bbb1b901f7536c36ba7093da
     
     private var _didFinishPicking: (([YPMediaItem], Bool) -> Void)?
     @objc private var _didFinishPicking_Photo: (([YPMediaPhoto], Bool) -> Void)?
@@ -48,13 +44,7 @@ open class YPImagePicker: UINavigationController {
     // This keeps the backwards compatibility keeps the api as simple as possible.
     // Multiple selection becomes available as an opt-in.
     private func didSelect(items: [YPMediaItem]) {
-        if (items.singlePhoto != nil) {
-            _didFinishPicking_Photo?(items.multiplePhotos ?? [], false)
-        }
-        if (items.singleVideo != nil) {
-            _didFinishPicking_Video?([items.singleVideo!], false)
-        }
-        //_didFinishPicking?(items, false)
+       _didFinishPicking?(items, false)
     }
     
     let loadingView = YPLoadingView()

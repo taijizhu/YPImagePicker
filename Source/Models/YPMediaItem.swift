@@ -14,16 +14,6 @@ import Photos
 
 @objc public class YPMediaPhoto : NSObject {
     
-<<<<<<< HEAD
-    @objc public var image: UIImage { return modifiedImage ?? originalImage }
-    @objc public let originalImage: UIImage
-    @objc public var modifiedImage: UIImage?
-    @objc public let fromCamera: Bool
-    @objc public let exifMeta : [String : Any]?
-    @objc public var asset: PHAsset?
-    
-    @objc public init(image: UIImage, exifMeta : [String : Any]? = nil, fromCamera: Bool = false, asset: PHAsset? = nil) {
-=======
     public var image: UIImage { return modifiedImage ?? originalImage }
     public let originalImage: UIImage
     public var modifiedImage: UIImage?
@@ -32,7 +22,6 @@ import Photos
     public var asset: PHAsset?
     
     public init(image: UIImage, exifMeta: [String: Any]? = nil, fromCamera: Bool = false, asset: PHAsset? = nil) {
->>>>>>> e25f5401a0bfe2b5bbb1b901f7536c36ba7093da
         self.originalImage = image
         self.modifiedImage = nil
         self.fromCamera = fromCamera
@@ -82,24 +71,7 @@ public extension Array where Element == YPMediaItem {
         return nil
     }
     
-<<<<<<< HEAD
-    public var multiplePhotos: [YPMediaPhoto]? {
-        var photos : [YPMediaPhoto] = []
-        for (_, item) in self.enumerated() {
-            switch (item) {
-            case .photo(let p):
-                photos.append(p)
-                break
-            case .video(let _):
-                break
-            }
-        }
-        return photos
-    }
-    public var singleVideo: YPMediaVideo? {
-=======
     var singleVideo: YPMediaVideo? {
->>>>>>> e25f5401a0bfe2b5bbb1b901f7536c36ba7093da
         if let f = first, case let .video(v) = f {
             return v
         }
